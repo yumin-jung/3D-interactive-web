@@ -148,29 +148,30 @@ const textureLoader = new THREE.TextureLoader();
 
 // 동기적 방식
 
-// textureLoader.load("/threejs.webp", (texture) => {
-//     const textureBoxGeometry = new THREE.BoxGeometry(1, 1, 1);
-//     const textureMaterial = new THREE.MeshStandardMaterial({
-//         map: texture
-//     });
-//     const textureMesh = new THREE.Mesh(textureBoxGeometry, textureMaterial);
-//     textureMesh.position.set(0, 0.5, 2);
-//     textureMesh.castShadow = true;
-//     textureMesh.receiveShadow = true;
-//     scene.add(textureMesh);
-// });
+textureLoader.load("/threejs.webp", (texture) => {
+    const textureBoxGeometry = new THREE.BoxGeometry(1, 1, 1);
+    const textureMaterial = new THREE.MeshStandardMaterial({
+        map: texture
+    });
+    const textureMesh = new THREE.Mesh(textureBoxGeometry, textureMaterial);
+    textureMesh.position.set(0, 0.5, 2);
+    textureMesh.castShadow = true;
+    textureMesh.receiveShadow = true;
+    scene.add(textureMesh);
+});
 
 // 비동기적 방식
-const texture = await textureLoader.loadAsync("/threejs.webp");
-const textureBoxGeometry = new THREE.BoxGeometry(1, 1, 1);
-const textureMaterial = new THREE.MeshStandardMaterial({
-    map: texture
-});
-const textureMesh = new THREE.Mesh(textureBoxGeometry, textureMaterial);
-textureMesh.position.set(0, 0.5, 2);
-textureMesh.castShadow = true;
-textureMesh.receiveShadow = true;
-scene.add(textureMesh);
+
+// const texture = await textureLoader.loadAsync("/threejs.webp");
+// const textureBoxGeometry = new THREE.BoxGeometry(1, 1, 1);
+// const textureMaterial = new THREE.MeshStandardMaterial({
+//     map: texture
+// });
+// const textureMesh = new THREE.Mesh(textureBoxGeometry, textureMaterial);
+// textureMesh.position.set(0, 0.5, 2);
+// textureMesh.castShadow = true;
+// textureMesh.receiveShadow = true;
+// scene.add(textureMesh);
 
 
 const orbitControls = new OrbitControls(camera, renderer.domElement);
